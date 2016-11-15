@@ -1,0 +1,35 @@
+{
+	"FileVersion" : 3,
+	"Version" : 1,
+	"VersionName" : "1.0",
+	"FriendlyName" : "MarsUI2",
+	"Description" : "Chrome powered HTML UI and HUD for Unreal Engine 4",
+	"Category" : "UI",
+	"CreatedBy" : "flufy3d",
+	"CreatedByURL" : "https://flufy3d.github.io/MarsUI/",
+	"DocsURL" : "",
+	"MarketplaceURL" : "com.epicgames.launcher://ue/marketplace/content/f2b42666e2c341429da27a5e9064be39",
+	"SupportURL" : "",
+	"EnabledByDefault" : false,
+	"CanContainContent" : false,
+	"IsBetaVersion" : false,
+	"Installed" : false,
+	"EngineVersion" : "4.13.0",
+	"Modules" :
+	[
+		{
+			"Name" : "MarsUI2",
+			"Type" : "Runtime",
+			"LoadingPhase" : "PreDefault",
+			"WhitelistPlatforms" :
+			[
+				"Win64",
+				"Win32",
+				"Mac",
+				"Android",
+				"IOS",
+				"PS4"
+			]
+		}
+	]
+}
