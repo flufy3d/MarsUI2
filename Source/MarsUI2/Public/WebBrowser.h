@@ -116,7 +116,7 @@ protected:
 	bool bSupportsTransparency;
 
 protected:
-	TSharedPtr<class SWebBrowser> MarsUI2;
+	TSharedPtr<class SBrowserCore> MarsUI2;
 
 protected:
 	// UWidget interface

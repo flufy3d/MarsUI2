@@ -2,7 +2,7 @@
 
 #include "MarsUI2PrivatePCH.h"
 
-#include "SWebBrowser.h"
+#include "SBrowserCore.h"
 
 #include "WebBrowser.h"
 
@@ -106,7 +106,7 @@ TSharedRef<SWidget> UWebBrowser::RebuildWidget()
 	}
 	else
 	{
-		MarsUI2 = SNew(SWebBrowser)
+		MarsUI2 = SNew(SBrowserCore)
 			.InitialURL(PrefixProcess(InitialURL))
 			.ShowControls(false)
 			.SupportsTransparency(bSupportsTransparency)
