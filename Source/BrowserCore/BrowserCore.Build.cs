@@ -21,7 +21,8 @@ public class BrowserCore : ModuleRules
 				"SlateCore",
 				"Serialization",
 				"CEF3Utils",
-			}
+                "CEF3"
+            }
 		);
 
 		if (Target.Platform == UnrealTargetPlatform.Win64
