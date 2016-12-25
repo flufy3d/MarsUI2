@@ -19,33 +19,11 @@ UWebBrowser::UWebBrowser(const FObjectInitializer& ObjectInitializer)
 	bIsVariable = true;
 }
 
-FString UWebBrowser::PrefixProcess(FString NewURL)
-{
-	if (NewURL.Contains(TEXT("marsui://"), ESearchCase::IgnoreCase, ESearchDir::FromStart))
-	{
-
-		// Get the current working directory
-		FString GameDir = FPaths::ConvertRelativePathToFull(FPaths::GameDir());
-
-		// We're loading a local file, so replace the proto with our game directory path
-		FString LocalFile = NewURL.Replace(TEXT("marsui://"), *GameDir, ESearchCase::IgnoreCase);
-
-		// Now we use the file proto
-		LocalFile = FString(TEXT("file:///")) + LocalFile;
-
-		UE_LOG(LogMarsUI2, Log, TEXT("Load Local File: %s"), *LocalFile)
-
-		return LocalFile;
-	}
-
-	return NewURL;
-}
-
 void UWebBrowser::LoadURL(FString NewURL)
 {
 	if ( MarsUI2.IsValid() )
 	{
-		return MarsUI2->LoadURL(PrefixProcess(NewURL));
+		return MarsUI2->LoadURL(UMarsUI2BlueprintFunctionLibrary::PrefixProcess(NewURL));
 	}
 }
 
@@ -117,7 +95,7 @@ TSharedRef<SWidget> UWebBrowser::RebuildWidget()
 			else
 			{
 				MarsUI2 = SNew(SBrowserCore)
-					.InitialURL(PrefixProcess(InitialURL))
+					.InitialURL(UMarsUI2BlueprintFunctionLibrary::PrefixProcess(InitialURL))
 					.ShowControls(false)
 					.SupportsTransparency(bSupportsTransparency)
 					.OnUrlChanged(BIND_UOBJECT_DELEGATE(FOnTextChanged, HandleOnUrlChanged));
@@ -127,7 +105,7 @@ TSharedRef<SWidget> UWebBrowser::RebuildWidget()
 		else
 		{
 			MarsUI2 = SNew(SBrowserCore)
-				.InitialURL(PrefixProcess(InitialURL))
+				.InitialURL(UMarsUI2BlueprintFunctionLibrary::PrefixProcess(InitialURL))
 				.ShowControls(false)
 				.SupportsTransparency(bSupportsTransparency)
 				.OnUrlChanged(BIND_UOBJECT_DELEGATE(FOnTextChanged, HandleOnUrlChanged));

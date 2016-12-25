@@ -128,8 +128,6 @@ protected:
 	// End of UWidget interface
 
 	void HandleOnUrlChanged(const FText& Text);
-private:
 
-	FString PrefixProcess(FString NewURL);
 
 };

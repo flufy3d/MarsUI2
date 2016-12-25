@@ -10,3 +10,4 @@
 
 DECLARE_LOG_CATEGORY_EXTERN(LogMarsUI2, Verbose, All);
 
+#include "MarsUI2BlueprintFunctionLibrary.h"

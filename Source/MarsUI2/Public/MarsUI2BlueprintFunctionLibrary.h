@@ -14,4 +14,12 @@ class MARSUI2_API UMarsUI2BlueprintFunctionLibrary : public UBlueprintFunctionLi
 	
 	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Clear BrowserCore", Keywords = "Clear BrowserCore"), Category = MarsUI2)
 		static void ClearBrowserCore();
+
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Prepare BrowserCore", Keywords = "Prepare BrowserCore"), Category = MarsUI2)
+		static void PrepareBrowserCore(const FString& url, bool bTransparency);
+
+	UFUNCTION(BlueprintCallable, meta = (DisplayName = "Prefix Process", Keywords = "Prefix Process"), Category = MarsUI2)
+		static FString PrefixProcess(const FString& NewURL);
+
+
 };
