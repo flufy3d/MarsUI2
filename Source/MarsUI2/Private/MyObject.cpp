@@ -7,6 +7,7 @@
 UMyObject::UMyObject( const FObjectInitializer& ObjectInitializer )
     : Super( ObjectInitializer )
 {
+	UE_LOG(LogMarsUI2, Log, TEXT("UMyObject::UMyObject"));
 }
 
 float UMyObject::FunctionA(float bInvisibleParameter) {
@@ -16,3 +17,13 @@ float UMyObject::FunctionA(float bInvisibleParameter) {
     return ret;
 }
 
+void UMyObject::BeginDestroy()
+{
+	Super::BeginDestroy();
+	UE_LOG(LogMarsUI2, Log, TEXT("UMyObject::BeginDestroy"));
+}
+void UMyObject::PostInitProperties()
+{
+	Super::PostInitProperties();
+	UE_LOG(LogMarsUI2, Log, TEXT("UMyObject::PostInitProperties"))
+}

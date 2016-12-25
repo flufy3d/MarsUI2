@@ -11,7 +11,8 @@ namespace UnrealBuildTool.Rules
 				{
 					"Core",
 				    "CoreUObject",
-					"BrowserCore",
+                    "Engine",
+                    "BrowserCore",
                     "Slate",
                     "SlateCore",
 					"UMG"

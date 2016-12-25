@@ -115,6 +115,10 @@ protected:
 	UPROPERTY(EditAnywhere, Category=Appearance)
 	bool bSupportsTransparency;
 
+	/** Should the browser window support persistent. */
+	UPROPERTY(EditAnywhere, Category=Appearance)
+	bool bSupportsPersistent;
+
 protected:
 	TSharedPtr<class SBrowserCore> MarsUI2;
 

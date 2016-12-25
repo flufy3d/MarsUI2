@@ -245,8 +245,7 @@ private:
 	/** A delegate that is invoked when document title changed. */
 	FOnTextChanged OnTitleChanged;
 
-	/** A delegate that is invoked when document address changed. */
-	FOnTextChanged OnUrlChanged;
+
 	
 	/** A delegate that is invoked when the browser attempts to pop up a new window */
 	FOnBeforePopupDelegate OnBeforePopup;
@@ -271,4 +270,7 @@ private:
 
 	/** The initial throbber setting */
 	bool bShowInitialThrobber;
+public:
+	/** A delegate that is invoked when document address changed. */
+	FOnTextChanged OnUrlChanged;
 };

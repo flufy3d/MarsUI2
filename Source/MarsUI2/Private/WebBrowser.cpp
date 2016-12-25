@@ -106,11 +106,35 @@ TSharedRef<SWidget> UWebBrowser::RebuildWidget()
 	}
 	else
 	{
-		MarsUI2 = SNew(SBrowserCore)
-			.InitialURL(PrefixProcess(InitialURL))
-			.ShowControls(false)
-			.SupportsTransparency(bSupportsTransparency)
-			.OnUrlChanged(BIND_UOBJECT_DELEGATE(FOnTextChanged, HandleOnUrlChanged));
+		if (bSupportsPersistent)
+		{
+			if (IMarsUI2Module::Get().MarsUI2_Static.IsValid())
+			{
+				MarsUI2 = IMarsUI2Module::Get().MarsUI2_Static;
+				MarsUI2->OnUrlChanged = BIND_UOBJECT_DELEGATE(FOnTextChanged, HandleOnUrlChanged);
+
+			}
+			else
+			{
+				MarsUI2 = SNew(SBrowserCore)
+					.InitialURL(PrefixProcess(InitialURL))
+					.ShowControls(false)
+					.SupportsTransparency(bSupportsTransparency)
+					.OnUrlChanged(BIND_UOBJECT_DELEGATE(FOnTextChanged, HandleOnUrlChanged));
+				IMarsUI2Module::Get().MarsUI2_Static = MarsUI2;
+			}
+		}
+		else
+		{
+			MarsUI2 = SNew(SBrowserCore)
+				.InitialURL(PrefixProcess(InitialURL))
+				.ShowControls(false)
+				.SupportsTransparency(bSupportsTransparency)
+				.OnUrlChanged(BIND_UOBJECT_DELEGATE(FOnTextChanged, HandleOnUrlChanged));
+		}
+
+
+
 
 		return MarsUI2.ToSharedRef();
 	}

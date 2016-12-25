@@ -19,6 +19,8 @@ public:
     float FunctionA(float bInvisibleParameter);
 private:
 
+	virtual void BeginDestroy() override;
+	virtual void PostInitProperties() override;
 
 
 };

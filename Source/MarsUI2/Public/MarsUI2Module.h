@@ -33,5 +33,6 @@ public:
 	{
 		return FModuleManager::Get().IsModuleLoaded( "MarsUI2" );
 	}
+	static TSharedPtr<class SBrowserCore> MarsUI2_Static;
 };
 

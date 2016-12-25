@@ -15,7 +15,11 @@ public:
 	virtual void ShutdownModule() override
 	{
 	}
+
 };
+
+
+TSharedPtr<class SBrowserCore> IMarsUI2Module::MarsUI2_Static;
 
 //////////////////////////////////////////////////////////////////////////
 
