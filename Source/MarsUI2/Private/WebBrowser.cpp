@@ -90,7 +90,7 @@ TSharedRef<SWidget> UWebBrowser::RebuildWidget()
 			{
 				MarsUI2 = IMarsUI2Module::Get().MarsUI2_Static;
 				MarsUI2->OnUrlChanged = BIND_UOBJECT_DELEGATE(FOnTextChanged, HandleOnUrlChanged);
-
+				FSlateApplication::Get().ClearAllUserFocus();
 			}
 			else
 			{
